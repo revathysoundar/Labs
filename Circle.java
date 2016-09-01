@@ -2,27 +2,25 @@
 
 public class Circle {
 	
-	public double rad;
+	public double radius;
 	public double circumference;
 	public double area;
 	public final double  PI = 3.14;
-	static int count = 1;
+	private static int objectCount = 0 ;
 	
 	
 	public Circle(double radius)
 	{
-		this.rad = radius;
+		this.radius = radius;
+		++objectCount;
 	}
 	
-	public Circle()
-	{
-		count++;
-	}
+	
 	
 	
 	public double getCircumference()
 	{
-		circumference =  (2 * PI * rad);
+		circumference =  (2 * PI * radius);
 		
 		 return circumference;
 		
@@ -30,17 +28,19 @@ public class Circle {
 	
 	public String getFormattedCircumference()
 	{
+		getCircumference();
 		return formatNumber(circumference);
 	}
 	
 	public double getArea()
 	{
-		area =  (PI * rad * rad );
+		area =  (PI * radius * radius );
 		 return area;
 		
 	}
 	public String getFormattedArea()
 	{
+		getArea();
 		return formatNumber(area);
 	}
 	private String formatNumber(double x)
@@ -52,7 +52,7 @@ public class Circle {
 	public static  int getObjectCount()
 	{
 		
-		return count;
+		return objectCount;
 	}
 
 }
